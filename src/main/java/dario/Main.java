@@ -3,23 +3,62 @@ package dario;
 
 public class Main {
     static void main() {
-        BankAccount A = new BankAccount(10_000_000, "A");
-        BankAccount B = new BankAccount(10_000_000, "B");
-        BankAccount C = new BankAccount(10_000_000, "C");
-
-        Transfer transfer1 = new Transfer(A, B, 10);
-        Transfer transfer2 = new Transfer(A, B, 10);
-        Transfer transfer3 = new Transfer(B, C, 10);
-        Transfer transfer4 = new Transfer(B, C, 10);
-        Transfer transfer5 = new Transfer(C, A, 10);
-        Transfer transfer6 = new Transfer(C, A, 10);
-
-        new Thread(new Transfer100kThread(transfer1, A, B, C)).start();
-        new Thread(new Transfer100kThread(transfer2, A, B, C)).start();
-        new Thread(new Transfer100kThread(transfer3, A, B, C)).start();
-        new Thread(new Transfer100kThread(transfer4, A, B, C)).start();
-        new Thread(new Transfer100kThread(transfer5, A, B, C)).start();
-        new Thread(new Transfer100kThread(transfer6, A, B, C)).start();
-
+        Counter counter = new Counter();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter1(counter.getCounter1() + 1);
+            }
+            System.out.println("Counter 1: " + counter.getCounter1() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter2(counter.getCounter2() + 1);
+            }
+            System.out.println("Counter 2: " + counter.getCounter2() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter3(counter.getCounter3() + 1);
+            }
+            System.out.println("Counter 3: " + counter.getCounter3() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter4(counter.getCounter4() + 1);
+            }
+            System.out.println("Counter 4: " + counter.getCounter4() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter5(counter.getCounter5() + 1);
+            }
+            System.out.println("Counter 5: " + counter.getCounter5() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter6(counter.getCounter6() + 1);
+            }
+            System.out.println("Counter 6: " + counter.getCounter6() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter7(counter.getCounter7() + 1);
+            }
+            System.out.println("Counter 7: " + counter.getCounter7() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
+        new Thread(() -> {
+            long start = System.currentTimeMillis();
+            for (int i = 0; i < 100_000_000; i++) {
+                counter.setCounter8(counter.getCounter8() + 1);
+            }
+            System.out.println("Counter 8: " + counter.getCounter8() + " (" + (System.currentTimeMillis() - start) + "ms)");
+        }).start();
     }
 }
