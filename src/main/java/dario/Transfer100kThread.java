@@ -3,14 +3,13 @@ package dario;
 public class Transfer100kThread implements Runnable {
 
     private final Transfer transfer;
-    private final BankAccount A, B, C, service;
+    private final BankAccount A, B, C;
 
-    public Transfer100kThread(Transfer transfer, BankAccount a, BankAccount b, BankAccount c, BankAccount service) {
+    public Transfer100kThread(Transfer transfer, BankAccount a, BankAccount b, BankAccount c) {
         this.transfer = transfer;
         this.A = a;
         this.B = b;
         this.C = c;
-        this.service = service;
 
     }
 
@@ -22,6 +21,5 @@ public class Transfer100kThread implements Runnable {
         System.out.println("A: " + A.getAccountValue());
         System.out.println("B: " + B.getAccountValue());
         System.out.println("C: " + C.getAccountValue());
-        System.out.println("Service: " + service.getAccountValue());
     }
 }
